@@ -1,0 +1,1 @@
+Various scrips, SQL queries for AzerothCore that I'm using with my local WoW server.
