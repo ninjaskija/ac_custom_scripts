@@ -31,7 +31,21 @@ INSERT INTO `npc_text` (`ID`, `text0_0`, `text0_1`, `lang0`, `Probability0`, `em
 
 -- Items
 DELETE FROM `npc_vendor` WHERE `entry`=@BoA;
-INSERT INTO `npc_vendor` (`entry`,`slot`,`item`,`maxcount`,`incrtime`,`ExtendedCost`) VALUES 
+INSERT INTO `npc_vendor` (`entry`,`slot`,`item`,`maxcount`,`incrtime`,`ExtendedCost`) VALUES
+-- Bags
+(@BoA,0,23162,0,0,0), -- Foror's Crate of Endless Resist Gear Storage
+-- Scrools
+(@BoA,0,38838,0,0,0), -- Scroll of Enchant Weapon - Fiery Weapon
+(@BoA,0,38868,0,0,0), -- Scroll of Enchant Weapon - Icy Chill
+(@BoA,0,38872,0,0,0), -- Scroll of Enchant Weapon - Unholy Weapon
+(@BoA,0,38873,0,0,0), -- Scroll of Enchant Weapon - Crusader
+(@BoA,0,38875,0,0,0), -- Scroll of Enchant 2H Weapon - Major Intellect
+(@BoA,0,38877,0,0,0), -- Scroll of Enchant Weapon - Spellpower
+(@BoA,0,38878,0,0,0), -- Scroll of Enchant Weapon - Healing Power
+(@BoA,0,38879,0,0,0), -- Scroll of Enchant Weapon - Strength
+(@BoA,0,38880,0,0,0), -- Scroll of Enchant Weapon - Agility
+(@BoA,0,38896,0,0,0), -- Scroll of Enchant 2H Weapon - Agility
+-- Heirlooms
 (@BoA,0,42943,0,0,0), -- Bloodied Arcanite Reaper
 (@BoA,0,42944,0,0,0), -- Balanced Heartseeker
 (@BoA,0,42945,0,0,0), -- Venerable Dal'Rend's Sacred Charge
@@ -69,8 +83,7 @@ INSERT INTO `npc_vendor` (`entry`,`slot`,`item`,`maxcount`,`incrtime`,`ExtendedC
 (@BoA,0,48691,0,0,0), -- Tattered Dreadmist Robe
 (@BoA,0,48716,0,0,0), -- Venerable Mass of McGowan
 (@BoA,0,48718,0,0,0), -- Repurposed Lava Dredger
-(@BoA,0,50255,0,0,0), -- Dread Pirate Ring
-(@BoA,0,23162,0,0,0); -- Foror's Crate of Endless Resist Gear Storage
+(@BoA,0,50255,0,0,0); -- Dread Pirate Ring
 
 
 -- ######################################################--
@@ -140,42 +153,55 @@ SET @75000G :=750000000; 	-- 75000 Gold
 --	HEIRLOOM PRICES
 -- ######################################################--
 
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 42943;  -- Bloodied Arcanite Reaper
-UPDATE item_template SET sellprice=@5G, buyprice=@375G WHERE entry = 42944;  -- Balanced Heartseeker
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 42945;  -- Venerable Dal'Rend's Sacred Charge
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 42946;  -- Charmed Ancient Bone Bow
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 42947;  -- Dignified Headmaster's Charge
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 42948;  -- Devout Aurastone Hammer
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 42949; -- Polished Spaulders of Valor
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 42950; -- Champion Herod's Shoulder
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 42951; -- Mystical Pauldrons of Elements
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 42952; -- Stained Shadowcraft Spaulders
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 42984; -- Preened Ironfeather Shoulders
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 42985; -- Tattered Dreadmist Mantle
-UPDATE item_template SET sellprice=@5G, buyprice=@375G WHERE entry = 42991;  -- Swift Hand of Justice
-UPDATE item_template SET sellprice=@5G, buyprice=@375G WHERE entry = 42992;  -- Discerning Eye of the Beast
-UPDATE item_template SET sellprice=@5G, buyprice=@375G WHERE entry = 44091;  -- Sharpened Scarlet Kris
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 44092;  -- Reforged Truesilver Champion
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 44093;  -- Upgraded Dwarven Hand Cannon
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 44094;  -- The Blessed Hammer of Grace
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 44095;  -- Grand Staff of Jordan
-UPDATE item_template SET sellprice=@5G, buyprice=@375G WHERE entry = 44096;  -- Battleworn Thrash Blade
-UPDATE item_template SET sellprice=@5G, buyprice=@375G WHERE entry = 44097;  -- Inherited Insignia of the Horde
-UPDATE item_template SET sellprice=@5G, buyprice=@375G WHERE entry = 44098;  -- Inherited Insignia of the Alliance
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 44099; -- Strengthened Stockade Pauldrons
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 44100; -- Pristine Lightforge Spaulders
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 44101; -- Prized Beastmaster's Mantle
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 44102; -- Aged Pauldrons of The Five Thunders
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 44103; -- Exceptional Stormshroud Shoulders
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 44105; -- Lasting Feralheart Spaulders
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 44107; -- Exquisite Sunderseer Mantle
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 48677; -- Champion's Deathdealer Breastplate
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 48685; -- Polished Breastplate of Valor
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 48687; -- Preened Ironfeather Breastplate
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 48689; -- Stained Shadowcraft Tunic
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 48683; -- Mystical Vest of Elements
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 48691; -- Tattered Dreadmist Robe
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 48716;  -- Venerable Mass of McGowan
-UPDATE item_template SET sellprice=@5G, buyprice=@750G WHERE entry = 48718;  -- Repurposed Lava Dredger
-UPDATE item_template SET sellprice=@5G, buyprice=@500G WHERE entry = 50255;  -- Dread Pirate Ring
-UPDATE item_template SET sellprice=@5G, buyprice=@1000G WHERE entry = 23162;  -- Foror's Crate of Endless Resist Gear Storage
+-- ### The ultimate bag ###
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 23162;  -- Foror's Crate of Endless Resist Gear Storage
+-- ### Enchanting scrools ###
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38838;  -- Scroll of Enchant Weapon - Fiery Weapon
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38868;  -- Scroll of Enchant Weapon - Icy Chill
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38872;  -- Scroll of Enchant Weapon - Unholy Weapon
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38873;  -- Scroll of Enchant Weapon - Crusader
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38875;  -- Scroll of Enchant 2H Weapon - Major Intellect
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38877;  -- Scroll of Enchant Weapon - Spellpower
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38878;  -- Scroll of Enchant Weapon - Healing Power
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38879;  -- Scroll of Enchant Weapon - Strength
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38880;  -- Scroll of Enchant Weapon - Agility
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 38896;  -- Scroll of Enchant 2H Weapon - Agility
+-- ### Heirlooms
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42943;  -- Bloodied Arcanite Reaper
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42944;  -- Balanced Heartseeker
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42945;  -- Venerable Dal'Rend's Sacred Charge
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42946;  -- Charmed Ancient Bone Bow
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42947;  -- Dignified Headmaster's Charge
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42948;  -- Devout Aurastone Hammer
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42949; -- Polished Spaulders of Valor
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42950; -- Champion Herod's Shoulder
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42951; -- Mystical Pauldrons of Elements
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42952; -- Stained Shadowcraft Spaulders
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42984; -- Preened Ironfeather Shoulders
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42985; -- Tattered Dreadmist Mantle
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42991;  -- Swift Hand of Justice
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 42992;  -- Discerning Eye of the Beast
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44091;  -- Sharpened Scarlet Kris
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44092;  -- Reforged Truesilver Champion
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44093;  -- Upgraded Dwarven Hand Cannon
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44094;  -- The Blessed Hammer of Grace
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44095;  -- Grand Staff of Jordan
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44096;  -- Battleworn Thrash Blade
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44097;  -- Inherited Insignia of the Horde
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44098;  -- Inherited Insignia of the Alliance
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44099; -- Strengthened Stockade Pauldrons
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44100; -- Pristine Lightforge Spaulders
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44101; -- Prized Beastmaster's Mantle
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44102; -- Aged Pauldrons of The Five Thunders
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44103; -- Exceptional Stormshroud Shoulders
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44105; -- Lasting Feralheart Spaulders
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 44107; -- Exquisite Sunderseer Mantle
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48677; -- Champion's Deathdealer Breastplate
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48685; -- Polished Breastplate of Valor
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48687; -- Preened Ironfeather Breastplate
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48689; -- Stained Shadowcraft Tunic
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48683; -- Mystical Vest of Elements
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48691; -- Tattered Dreadmist Robe
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48716;  -- Venerable Mass of McGowan
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 48718;  -- Repurposed Lava Dredger
+UPDATE item_template SET sellprice=@1S, buyprice=@1S WHERE entry = 50255;  -- Dread Pirate Ring
